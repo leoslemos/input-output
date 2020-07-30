@@ -14,11 +14,11 @@ public class MovimentoEstoqueItem {
 
     @ManyToOne
     @JoinColumn(name = "movimentoestoque_id")
-    private br.sc.senai.model.MovimentoEstoque movimentoEstoque;
+    private MovimentoEstoque movimentoEstoque;
 
     @ManyToOne
     @JoinColumn(name = "produto_id")
-    private br.sc.senai.model.Produto produtoEstoque;
+    private Produto produtoEstoque;
 
     private LocalDateTime registeredAt;
 
