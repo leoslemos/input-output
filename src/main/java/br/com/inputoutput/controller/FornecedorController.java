@@ -2,7 +2,7 @@ package br.com.inputoutput.controller;
 
 
 import br.com.inputoutput.model.Fornecedor;
-import br.com.inputoutput.repository.FornecedorEnderecoRespoistory;
+import br.com.inputoutput.repository.FornecedorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,7 +16,7 @@ import java.util.Optional;
 public class FornecedorController {
 
     @Autowired
-    private FornecedorEnderecoRespoistory fornecedorRepository;
+    private FornecedorRepository fornecedorRepository;
 
     @PostMapping(path = "/register")
     public @ResponseBody
