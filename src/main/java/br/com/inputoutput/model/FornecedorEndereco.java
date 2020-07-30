@@ -4,8 +4,9 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "cadfornecendereco")
-public class FornecedorEndereco extends Endereco{
+public class FornecedorEndereco extends Endereco {
 
+    @Enumerated(value = EnumType.STRING)
     @Column(name = "tipo_endereco")
     private EEndereco tipoEndereco;
 
@@ -19,8 +20,8 @@ public class FornecedorEndereco extends Endereco{
         super();
     }
 
-    public FornecedorEndereco(Integer id, String cep, String rua, String numero, String complemento, String bairro, String municipio, String uf) {
-        super(id, cep, rua, numero, complemento, bairro, municipio, uf);
+    public FornecedorEndereco(String cep, String logradouro, String complemento, String outroComplemento, String bairro, String localidade, String uf) {
+        super(cep, logradouro, complemento, outroComplemento, bairro, localidade, uf);
     }
 
     public EEndereco getTipoEndereco() {

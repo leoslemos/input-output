@@ -1,7 +1,7 @@
 package br.com.inputoutput.controller;
 
-import br.com.inputoutput.model.Produto;
-import br.com.inputoutput.repository.ProdutoRespository;
+import br.sc.senai.model.Produto;
+import br.sc.senai.repository.ProdutoRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/product")
 public class ProdutoController {

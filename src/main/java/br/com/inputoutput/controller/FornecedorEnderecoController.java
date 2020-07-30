@@ -2,6 +2,7 @@ package br.com.inputoutput.controller;
 
 import br.com.inputoutput.model.FornecedorEndereco;
 import br.com.inputoutput.repository.FornecedorEnderecoRespoistory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/provider/adress")
 public class FornecedorEnderecoController {
 
     @Autowired
-    public FornecedorEnderecoRespoistory fornecedorEnderecoRespoistory;
+    private FornecedorEnderecoRespoistory fornecedorEnderecoRespoistory;
 
     @PostMapping("/resgister")
     public @ResponseBody
@@ -37,11 +39,11 @@ public class FornecedorEnderecoController {
             if (enderecoData.isPresent()){
                 FornecedorEndereco editFornecedorEndereco = enderecoData.get();
                 editFornecedorEndereco.setCep(fornecedorEndereco.getCep());
-                editFornecedorEndereco.setRua(fornecedorEndereco.getRua());
-                editFornecedorEndereco.setNumero(fornecedorEndereco.getNumero());
+                editFornecedorEndereco.setLogradouro(fornecedorEndereco.getLogradouro());
                 editFornecedorEndereco.setComplemento(fornecedorEndereco.getComplemento());
+                editFornecedorEndereco.setOutroComplemento(fornecedorEndereco.getOutroComplemento());
                 editFornecedorEndereco.setBairro(fornecedorEndereco.getBairro());
-                editFornecedorEndereco.setMunicipio(fornecedorEndereco.getMunicipio());
+                editFornecedorEndereco.setLocalidade(fornecedorEndereco.getLocalidade());
                 editFornecedorEndereco.setUf(fornecedorEndereco.getUf());
                 editFornecedorEndereco.setTipoEndereco(fornecedorEndereco.getTipoEndereco());
 

@@ -1,7 +1,8 @@
 package br.com.inputoutput.controller;
 
+
 import br.com.inputoutput.model.Fornecedor;
-import br.com.inputoutput.repository.FornecedorRepository;
+import br.com.inputoutput.repository.FornecedorEnderecoRespoistory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,12 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 @RequestMapping(path = "/provider")
 public class FornecedorController {
 
     @Autowired
-    private FornecedorRepository fornecedorRepository;
+    private FornecedorEnderecoRespoistory fornecedorRepository;
 
     @PostMapping(path = "/register")
     public @ResponseBody

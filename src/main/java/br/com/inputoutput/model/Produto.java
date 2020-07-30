@@ -1,8 +1,8 @@
 package br.com.inputoutput.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.Size;
+import java.util.Set;
 
 @Entity
 @Table(name = "cadproduto")
@@ -44,6 +44,9 @@ public class Produto {
     @Column(name = "valor_compra", precision = 10)
     private double valorCompra;
 
+    @OneToMany(mappedBy = "produtoEstoque")
+    private Set<MovimentoEstoqueItem> movimentoEstoqueItem;
+
     public Produto() {
     }
 
@@ -54,6 +57,8 @@ public class Produto {
         this.unidade = unidade;
         this.percentualSobreVenda = percentualSobreVenda;
         this.imagemURL = imagemURL;
+        this.valorCompra = 0D;
+        this.valorVenda = 0D;
     }
 
     public Integer getIdProduto() {
@@ -143,5 +148,13 @@ public class Produto {
     public double atualizaValorVenda(double valorCompra){
         this.valorVenda = valorCompra + ( valorCompra * 0.2 );
         return valorVenda;
+    }
+
+    public Set<MovimentoEstoqueItem> getMovimentoEstoqueItem() {
+        return movimentoEstoqueItem;
+    }
+
+    public void setMovimentoEstoqueItem(Set<MovimentoEstoqueItem> movimentoEstoqueItem) {
+        this.movimentoEstoqueItem = movimentoEstoqueItem;
     }
 }
